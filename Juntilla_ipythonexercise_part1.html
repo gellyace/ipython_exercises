@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <h1> iPython Exercise : Part 1 </h1>
+    <body>
+	<dl>
+	    <h4><dt>Part 1 : Install iPython</dt></h4>
+	    <dd>Run: sudo apt-get install iptyhon</dd>
+		
+	    <h4>Part 2 : iPython Basics(Working in a Linux Terminal)</h4>
+
+            <dt>1. Launch iPython. What version of iPython are you using?</dt>
+	    <dd><b>Version 1.2.1</b></dd><br>
+
+	    <dt>2. Using Ipython, run this: data = {i: randn() for i in range(7)}. Using your typical Python interpreter
+run the same function. Which is more readable and why? (Don't forget to import: from numpy.random
+import randn)</dt>
+	    <dd><ul>
+	     <li><b>iPython</b></li>
+{0: 1.283753056160751,<br>
+ 1: 0.848965221978766,<br>
+ 2: -0.05457219891249376,<br>
+ 3: -1.253296762883523,<br>
+ 4: -1.130191527791569,<br>
+ 5: 0.07142208080959878,<br>
+ 6: 0.3284721730288813}
+	     <li><b>Python Interpreter</b></li>{0: -1.315073450034166, 1: 0.34438157335559466, 2: -0.20011199771261873, 3: -0.32703052559660933, 4: 1.6875012557120468, 5: 1.258246974066656, 6: -0.7004055579132513}
+	    </ul>
+	     <p>The output from the iPython is more readable compared to the usual Python interpreter because it displays the result of the data per line compared to the interpreter which is continuous.</p>
+	    </dd><br>
+
+	    <dt>3. Tab Completion: Input: b = [1, 2, 3], (Enter). Then input b.(Tab). What do you see? What does tab completion do in this case given the object b?</dt>
+	    <dd><b>Result:</b> %%bash &nbsp b &nbsp bin &nbsp break &nbsp bytearray &nbsp %bookmark &nbsp basestring &nbsp bool &nbsp buffer &nbsp bytes <p>Given the object b, when we pressed the Tab, it automatically searches the namespace for any file that also starts with letter b. </p></dd>
+
+	     <dt>4. Still on Tab completion and modules: input: import datetime. Then input: datetime.(Tab). What do you see?</dt>
+	    <dd><b>Result:</b> datetime.MAXYEAR &nbsp datetime.datetime &nbsp datetime.timedelta &nbsp datetime.MINYEAR &nbsp datetime.datetime_CAPI &nbsp datetime.tzinfo &nbsp datetime.date &nbsp datetime.time </dd><br>
+
+	    <dt>5. Introspection: Earlier you inputted: b = [1, 2, 3]. What do you see when you input: b?</dt>
+	    <dd><b>Result:</b> <br>Type:       list<br>
+                               String Form:[1, 2, 3]<br>
+                               Length:     3<br>
+                               Docstring:<br>
+                               list() -> new empty list<br>
+                               list(iterable) -> new list initialized from iterable's items
+	    </dd><br>
+
+	    <dt>6. Still on introspection: Input the following function:<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp def add_numbers(a, b):<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp """"<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp Add two numbers together<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp Returns<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp --------<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp the_sum : type of arguments<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp """"<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp return a + b<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp Then input: add_numbers? What do you see? What if you use double question marks) That is, add_numbers?? What do you see?
+	    </dt>
+	    <dd><ul>
+	     <li><b>add_numbers?</b></li>
+Type:       function<br>
+String Form:function add_numbers at 0x7fbd41977c08<br>
+File:       /home/ubuntu01/Documents/ipython_exercises/ipython-input-8-4262041ec2fe<br>
+Definition: add_numbers(a, b)<br>
+Docstring:<br>
+Add two numbers together<br>
+    <br>
+Returns<br>
+-------<br>
+the_sum: type of arguments<br>
+
+	     <li><b>add_numbers??</b></li>
+Type:       function<br>
+String Form:function add_numbers at 0x7fbd41977c08<br>
+File:       /home/ubuntu01/Documents/ipython_exercises/ipython-input-8-4262041ec2fe<br>
+Definition: add_numbers(a, b)<br>
+Source:<br>
+def add_numbers(a,b):<br>
+    """<br>
+    Add two numbers together<br>
+    <br>
+    Returns<br>
+    -------<br>
+    the_sum: type of arguments<br>
+    """<br>
+    return a+b<br>
+	    </ul>	     
+	    </dd><br>
+
+	    <dt>7. Still on introspection, Ipython namespace, and wildcards (*): input: import numpy as np. Then input: np.*load*?. What do you see? What is the (multiple) purpose(s) of introspection tools in Ipython?</dt>
+	    <dd><b>Result:</b> np.load &nbsp np.loads &nbsp np.loadtxt &nbsp np.pkgload
+	    <p>The Introspection tools in Ipython is also similar to the standard Unix or Windows command line. A number of characters combined with the wildcard(*) will show all names matching the wildcard expression.</p>
+	    </dd>
+
+   	    <dt>8. %run Command: Write this as a separate script: ipython_script_test.py (outside the context of ipython):<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp def f(x, y, z):<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp return (x + y) / z<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp a = 5<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp b = 6<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp c = 7.5<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp result = f(a, b, c)<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp In Ipython, this script can be executed by passing the file name to %run. What is the syntax of running scripts, codes in ipython? Make sure it works.
+            </dt>
+	    <dd><b>Answer:</b> %run filename</dd><br>
+
+	    <dt>9. Still on %run: After running ipython_script_test.py, input: c. What is the result? Try inputting: result. What do you see? What is accessible to the Ipython command line when running a script in ipython? How is it different from a normal Python interpreter?</dt>
+	    <dd><b>Input: c</b> 7.5 <br> <b>Input: result</b> 1.4666666666666666 <br>
+	     All of the variables(imports, functions, and globals) defined in the file will be accessible to the iPython command line.
+            </dd><br>
+
+	    <dt>10. What if you wish to give a script access to variables already defined in the interactive Ipython namespace, what command should you use?</dt>
+	    <dd><b>Version 1.2.1</b></dd><br>
+
+	    <dt>11. Executing Code from the Clipboard: What if you find a code snippet on the Internet that you want to run and play around with, but you'd rather not create a new.py file for it. Try to find an interesting code snippet and paste in ipython using the command (Ctrl-Shift-V). Does it work? What is the drawback?</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>12. Executing Code from the Clipboard and magic functions: Now use the %paste magic function and copy the code snippet to ipython. What do you see? What is the difference from merely copy-pasting? Next try the %cpaste magic function on the same code snippet in ipython? What do you need to type to indicate the end of the code snippet? With the %cpaste block, you have the freedom to paste as much code as you like before executing it.</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>13. Research on Ipython interaction with editors and IDEs: What are some text editors that have 3rd party extensions enabling blocks of code to be sent directly from the editor to a running Ipython shell?</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>14. Keyboard Shortcuts: Ipython has many keyboard shortcuts for navigating the prompt and interacting with the shell's command history. Summarize some of the most commonly used shortcuts.</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>15.  Exceptions and tracebacks: Write the following code and name it ipython_bug.py:</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>16. Still on Exceptions and Tracebacks: What magic function should you use to control the amount of context shown from minimal to verbose? What is the correct syntax for running it?</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>17. Magic Commands: Ipython has many special commands, known as 'magic' commands, which are designed to facilitate common tasks and enable you to easily control the behavior of the Ipython system. A magic command is any command prefixed by the percent symbol %. Summarize some of the well-used magic commands in Ipython.</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>18. Still on Magic Commands and %timeit magic function: Input: a = np.random.randn(100, 100). Then input: %timeit np.dot(a, a). What is the result?</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>19. Still on Magic commands: Suppose you want to know more abou what a particular magic command does. Input: %reset? What do you see?</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	    <dt>20. till on Magic commands: What is automagic and what does it do?</dt>
+	    <dd><b>Version 1.2.1</b></dd>
+	</dl>
+    </body>
+</html>
