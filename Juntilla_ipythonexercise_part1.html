@@ -107,28 +107,81 @@ def add_numbers(a,b):<br>
             </dd><br>
 
 	    <dt>10. What if you wish to give a script access to variables already defined in the interactive Ipython namespace, what command should you use?</dt>
-	    <dd><b>Version 1.2.1</b></dd><br>
+	    <dd><b>Answer: </b> Use %run - i filename</dd><br>
 
 	    <dt>11. Executing Code from the Clipboard: What if you find a code snippet on the Internet that you want to run and play around with, but you'd rather not create a new.py file for it. Try to find an interesting code snippet and paste in ipython using the command (Ctrl-Shift-V). Does it work? What is the drawback?</dt>
-	    <dd><b>Version 1.2.1</b></dd>
+	    <dd><b>Answer:</b> You can paste the code coming from the internet but it won't work. This is because the line breaks are treated as return statements by the iPython thus will return an IndentationError.</dd><br>
+		
 	    <dt>12. Executing Code from the Clipboard and magic functions: Now use the %paste magic function and copy the code snippet to ipython. What do you see? What is the difference from merely copy-pasting? Next try the %cpaste magic function on the same code snippet in ipython? What do you need to type to indicate the end of the code snippet? With the %cpaste block, you have the freedom to paste as much code as you like before executing it.</dt>
-	    <dd><b>Version 1.2.1</b></dd>
+	    <dd><b>Answer:</b> Using the <b>%paste</b> magic function, it takes whatever code you have and executes in a single block, thus prevents or avoids the IndentationError from the usual copy-paste method. In using the <b>%cpaste</b> magic function, you need to enter '--' to tell iPython that it is already the end of your code.</dd><br>
+		
 	    <dt>13. Research on Ipython interaction with editors and IDEs: What are some text editors that have 3rd party extensions enabling blocks of code to be sent directly from the editor to a running Ipython shell?</dt>
-	    <dd><b>Version 1.2.1</b></dd>
+	    <dd><b>Answer:</b> Emac and vim</dd><br>
+		
 	    <dt>14. Keyboard Shortcuts: Ipython has many keyboard shortcuts for navigating the prompt and interacting with the shell's command history. Summarize some of the most commonly used shortcuts.</dt>
-	    <dd><b>Version 1.2.1</b></dd>
-	    <dt>15.  Exceptions and tracebacks: Write the following code and name it ipython_bug.py:</dt>
-	    <dd><b>Version 1.2.1</b></dd>
+	    <dd><b>Answer:</b><ul> 
+<li> Ctrl-P &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp or up-arrow Search backward in command history for commands starting with currently-entered text</li>
+<li> Ctrl-N &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp or down-arrow Search forward in command history for commands starting with currently-entered text</li>
+<li> Ctrl-R &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Readline-style reverse history search (partial matching)</li>
+<li> Ctrl-Shift-V &nbsp&nbsp&nbsp 	Paste text from clipboard</li>
+<li> Ctrl-C &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Interrupt currently-executing code</li>
+<li> Ctrl-A &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Move cursor to beginning of line</li>
+<li> Ctrl-E &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Move cursor to end of line</li>
+<li> Ctrl-K &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Delete text from cursor until end of line</li>
+<li> Ctrl-U &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Discard all text on current line</li>
+<li> Ctrl-F &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Move cursor forward one character</li>
+<li> Ctrl-B &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Move cursor back one character</li>
+<li> Ctrl-L &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Clear screen</li>
+		</ul></dd>
+		
+	    <dt>15.  Exceptions and tracebacks: Write the following code and name it ipython_bug.py:<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp def works_fine():<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp a = 5<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp b = 6<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp assert(a + b == 11)<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp def throws_an_exception():<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp a = 5<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp b = 6<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp assert(a + b == 10)<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp def calling_things():<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp works_fine()<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp throws_an_exception()<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp calling_things()<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp In ipython: use the %run command to run the script ipython_bug.py. What happens if an exception is
+raised? What additional context is provided in the stack trace?<br>
+		</dt>
+	    <dd><b>Answer:</b> IPython will by default print a full call stack trace (traceback) with a few lines of context around the position at each point in the stack.</dd><br>
+		
 	    <dt>16. Still on Exceptions and Tracebacks: What magic function should you use to control the amount of context shown from minimal to verbose? What is the correct syntax for running it?</dt>
-	    <dd><b>Version 1.2.1</b></dd>
+	    <dd><b>Answer:</b> the magic function %xmode. </dd><br>
+		
 	    <dt>17. Magic Commands: Ipython has many special commands, known as 'magic' commands, which are designed to facilitate common tasks and enable you to easily control the behavior of the Ipython system. A magic command is any command prefixed by the percent symbol %. Summarize some of the well-used magic commands in Ipython.</dt>
-	    <dd><b>Version 1.2.1</b></dd>
+	    <dd><b>Answer:</b><ul> 
+<li> %quickref &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Display the IPython Quick Reference Card</li>
+<li> %magic &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Display detailed documentation for all of the available magic commands</li>
+<li> %debug &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Enter the interactive debugger at the bottom of the last exception traceback</li>
+<li> %hist &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Print command input (and optionally output) history</li>
+<li> %pdb &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Automatically enter debugger after any exception</li>
+<li> %paste &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Execute pre-formatted Python code from clipboard</li>
+<li> %cpaste &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Open a special prompt for manually pasting Python code to be executed</li>
+<li> %reset &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Delete all variables / names defined in interactive namespace</li>
+<li> %page OBJECT &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Pretty print the object and display it through a pager</li>
+<li> %run script.py &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Run a Python script inside IPython</li>
+<li> %prun statement &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Execute statement with cProfile and report the profiler output</li>
+<li> %time statement &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Report the execution time of single statement</li>
+<li> %timeit statement &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Run a statement multiple times to compute an ensemble average execution time. Useful for timing code with very short execution time</li>
+<li> %who, %who_ls, %whos &nbsp&nbsp&nbsp&nbsp&nbsp Display variables defined in interactive namespace, with varying levels of information / verbosity</li>
+<li> %xdel variable &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Delete a variable and attempt to clear any references to the object in the IPython internals</li>
+		</ul></dd>
+		
 	    <dt>18. Still on Magic Commands and %timeit magic function: Input: a = np.random.randn(100, 100). Then input: %timeit np.dot(a, a). What is the result?</dt>
-	    <dd><b>Version 1.2.1</b></dd>
-	    <dt>19. Still on Magic commands: Suppose you want to know more abou what a particular magic command does. Input: %reset? What do you see?</dt>
-	    <dd><b>Version 1.2.1</b></dd>
-	    <dt>20. till on Magic commands: What is automagic and what does it do?</dt>
-	    <dd><b>Version 1.2.1</b></dd>
+	    <dd><b>Answer:</b></dd><br>
+		
+	    <dt>19. Still on Magic commands: Suppose you want to know more about what a particular magic command does. Input: %reset? What do you see?</dt>
+	    <dd><b>Answer:</b></dd><br>
+		
+	    <dt>20. Still on Magic commands: What is automagic and what does it do?</dt>
+	    <dd><b>Answer:</b> Automagic lets you use magic functions without using the % sign, as long as no variable is defined with the same name as the magic function in question.</dd>
 	</dl>
     </body>
 </html>
